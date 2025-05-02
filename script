@@ -1,0 +1,49 @@
+// ==UserScript==
+// @name         Motherfucking CSS + Shrink Media + Kill Floats
+// @namespace    http://tampermonkey.net/
+// @version      1.2
+// @description  Apply minimal CSS, shrink imgs/svgs, and remove fixed/sticky elements from pages like Google
+// @author       You
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==
+
+(function () {
+  'use strict';
+
+  // Remove all external styles and inline styles
+  document.querySelectorAll('link[rel="stylesheet"], style').forEach(el => el.remove());
+  document.querySelectorAll('[style]').forEach(el => el.removeAttribute('style'));
+
+  // Inject minimal custom CSS (yours)
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://adnjoo.github.io/motherfuckingapp/style.css';
+  document.head.appendChild(link);
+
+  // Inject additional rules
+  const style = document.createElement('style');
+  style.textContent = `
+    img, svg, video {
+      max-width: 50px !important;
+      max-height: 50px !important;
+      height: auto !important;
+      display: inline-block !important;
+    }
+
+    [style*="position:fixed"],
+    [style*="position:sticky"],
+    * {
+      position: static !important;
+      top: auto !important;
+      bottom: auto !important;
+      left: auto !important;
+      right: auto !important;
+    }
+
+    html, body {
+      scroll-padding-top: 0 !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
