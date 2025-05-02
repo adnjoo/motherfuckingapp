@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This is a Motherfucking App</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #fff;
+        color: #111;
+        padding: 2rem;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      aside {
+        font-style: italic;
+        color: #555;
+      }
+
+      .button {
+        display: inline-block;
+        margin: 1rem 0;
+        padding: 1rem 2rem;
+        background: black;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      section {
+        margin-bottom: 2.5rem;
+      }
+
+      ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+      }
+
+      blockquote {
+        border-left: 4px solid #aaa;
+        padding-left: 1rem;
+        color: #666;
+        font-style: italic;
+      }
+
+      footer {
+        text-align: center;
+        font-size: 0.8rem;
+        color: #aaa;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #111;
+          color: #eee;
+        }
+
+        .button {
+          background: #eee;
+          color: #111;
+        }
+
+        blockquote {
+          border-color: #666;
+          color: #ccc;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>This is a Motherfucking App.</h1>
+      <aside>And it's fucking flawless.</aside>
+      <a href="#" class="button">Download the App</a>
+    </header>
+
+    <section>
+      <h2>Why the fuck would you need this?</h2>
+      <p>
+        Because you're sick of bloated, dopamine-dripping apps that yell at you
+        with “daily streaks” and “mindful reminders” while tracking your every
+        move like a horny surveillance state.
+      </p>
+    </section>
+
+    <section>
+      <h2>Features?</h2>
+      <ul>
+        <li>
+          Opens fast. Like, immediately. No splash screens. No brand animations.
+          Just works.
+        </li>
+        <li>
+          Dark mode? Of course, motherfucker. It’s 2025, not the Dark Ages.
+        </li>
+        <li>
+          No tracking. No bullshit. Your data stays where it belongs — the fuck
+          away from us.
+        </li>
+        <li>
+          Built-in “Do Nothing” button, because sometimes, doing nothing is
+          productivity, bitch.
+        </li>
+        <li>
+          Free. Because why the hell should you pay to open a goddamn to-do
+          list?
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>This app respects your time</h2>
+      <p>
+        No sign-up. No login. No stupid onboarding carousel with cartoon
+        animals.
+      </p>
+      <p>
+        You open it. You do the thing. You close it. That’s it. Your grandma
+        could use this app while drunk on box wine and still beat your
+        productivity stats.
+      </p>
+    </section>
+
+    <section>
+      <h2>Not for everyone</h2>
+      <p>
+        If you want a pastel gradient moodboard with 12 types of haptic buzzes
+        and weekly serotonin reports, fuck off to Silicon Valley. This app is
+        for people who actually want to get shit done — or at least pretend to,
+        while looking cool as hell.
+      </p>
+    </section>
+
+    <section>
+      <h2>Need a break?</h2>
+      <button onclick="doNothing()" class="button">Do Nothing</button>
+    </section>
+
+    <section>
+      <h2>Do One Fucking Thing</h2>
+      <input
+        type="text"
+        id="task"
+        placeholder="Enter the one thing…"
+        style="padding: 1rem; width: 100%; font-size: 1rem"
+      />
+      <button onclick="saveTask()" class="button">Do It</button>
+      <p id="output" style="margin-top: 1rem"></p>
+    </section>
+
+    <section>
+      <h3>So what is it?</h3>
+      <p>
+        It’s a to-do list. It’s a note app. It’s a calendar. It’s none of that.
+        It’s a vibe. It’s a middle finger to every overengineered startup that’s
+        ever wasted your time.
+      </p>
+    </section>
+
+    <blockquote>
+      “Good apps are as little app as possible.” — Some German motherfucker,
+      probably
+    </blockquote>
+
+    <footer>
+      &copy; 2025 Motherfucking App, Inc. We don't track you. We don’t even know
+      who you are. Good.
+    </footer>
+
+    <script>
+      function doNothing() {
+        document.body.innerHTML = `
+        <div style="text-align:center; padding:5rem;">
+          <h1>You're doing absolutely fucking nothing.</h1>
+          <p>Good job. Breathe. Be useless for a bit.</p>
+          <button onclick="location.reload()" class="button">Go back</button>
+        </div>
+      `;
+      }
+
+      function saveTask() {
+        const task = document.getElementById("task").value.trim();
+        const output = document.getElementById("output");
+        if (task) {
+          output.innerText = 'Now fucking do this: "' + task + '"';
+        } else {
+          output.innerText = "You can't do nothing *and* something. Pick one.";
+        }
+      }
+    </script>
+  </body>
+</html>
